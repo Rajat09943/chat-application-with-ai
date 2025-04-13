@@ -79,7 +79,22 @@ const ChatContainer = () => {
                   className="sm:max-w-[200px] rounded-md mb-2"
                 />
               )}
-              {message.text && <p>{message.text}</p>}
+              {message.text && (
+  <>
+    <p>{message.text}</p>
+    {message.text.includes("@ai") && (
+      <a
+        href="http://localhost:8501"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline mt-1"
+      >
+        🔗 Open AI ChatBot
+      </a>
+    )}
+  </>
+)}
+
             </div>
           </div>
         ))}

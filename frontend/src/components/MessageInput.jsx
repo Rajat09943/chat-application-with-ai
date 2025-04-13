@@ -37,6 +37,36 @@ const MessageInput = () => {
         text: text.trim(),
         image: imagePreview,
       });
+      // 2. AI Reply if @ai is used
+    if (text.includes("@ai")) {
+      const aiRes = await fetch("http://localhost:5002/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: text }),
+      });
+      const aiData = await aiRes.json();
+      await sendMessage({
+        text: aiData.response,
+        senderId: "ai-bot",
+      });
+    }
+
+    // 3. OCR Reply if image is uploaded
+    if (imagePreview) {
+      const ocrRes = await fetch("http://localhost:5002/extract-text", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: imagePreview }),
+      });
+      const ocrData = await ocrRes.json();
+
+      if (ocrData.text && ocrData.text.trim() !== "") {
+        await sendMessage({
+          text: `📃 OCR Extracted Text:\n${ocrData.text}`,
+          senderId: "ai-bot",
+        });
+      }
+    }
 
       // Clear form
       setText("");
