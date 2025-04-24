@@ -37,6 +37,7 @@ const MessageInput = () => {
         text: text.trim(),
         image: imagePreview,
       });
+<<<<<<< HEAD
       // 2. AI Reply if @ai is used
     if (text.includes("@ai")) {
       const aiRes = await fetch("http://localhost:5002/ask", {
@@ -67,6 +68,8 @@ const MessageInput = () => {
         });
       }
     }
+=======
+>>>>>>> saved-changes
 
       // Clear form
       setText("");

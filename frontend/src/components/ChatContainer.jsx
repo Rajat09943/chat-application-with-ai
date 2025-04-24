@@ -79,6 +79,7 @@ const ChatContainer = () => {
                   className="sm:max-w-[200px] rounded-md mb-2"
                 />
               )}
+<<<<<<< HEAD
               {message.text && (
   <>
     <p>{message.text}</p>
@@ -95,6 +96,9 @@ const ChatContainer = () => {
   </>
 )}
 
+=======
+              {message.text && <p>{message.text}</p>}
+>>>>>>> saved-changes
             </div>
           </div>
         ))}
