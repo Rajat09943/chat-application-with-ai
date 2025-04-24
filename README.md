@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Chat Application
 This is a fullstack chat app built using React, Node.js, and MongoDB.
 =======
@@ -49,3 +50,6 @@ npm start
 =======
 # chat-application-with-ai
 >>>>>>> 9dcdd7419eac9ecb230deb583b18b48e9c48052b
+=======
+# chat-application-with-ai
+>>>>>>> 3d31bb3c8a6f4875037b52ab380a2b1ce5429601
